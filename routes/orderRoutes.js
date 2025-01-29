@@ -1,0 +1,29 @@
+import express from 'express';
+import Order from '../models/orderModel.js';
+import authMiddleware from '../middleware/authMiddleware.js'; // Middleware to verify user
+
+const router = express.Router();
+
+// Place an Order
+router.post('/', authMiddleware, async (req, res) => {
+  try {
+    const { name, phone, address, doorNo, areaName, landmark, gstNumber, locationType } = req.body;
+    const order = new Order({ userId: req.userId, name, phone, address, doorNo, areaName, landmark, gstNumber, locationType });
+    await order.save();
+    res.status(201).json({ message: 'Order placed successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error placing order', error });
+  }
+});
+
+// Fetch User's Previous Orders
+router.get('/my-orders', authMiddleware, async (req, res) => {
+  try {
+    const orders = await Order.find({ userId: req.userId }).sort({ createdAt: -1 });
+    res.status(200).json(orders);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching orders', error });
+  }
+});
+
+export default router;
