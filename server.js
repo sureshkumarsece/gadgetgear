@@ -1,16 +1,15 @@
 
 
-import cors from 'cors';
-import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
-import cartRoutes from './routes/cartRoutes.js';
-import connectDB from './config/db.js';
-import orderRoutes from './routes/orderRoutes.js';
-
 const cors = require('cors');
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
 const express = require('express');
+
+const cartRoutes = require('./routes/cartRoutes.js');
+const connectDB = require('./config/db.js');
+const orderRoutes = require('./routes/orderRoutes.js');
 
 dotenv.config();
 const app = express();
