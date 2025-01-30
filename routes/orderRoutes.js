@@ -1,10 +1,9 @@
 import express from 'express';
 import Order from '../models/orderModel.js';
-import authMiddleware from '../middleware/authMiddleware.js'; // Middleware to verify user
+import authMiddleware from '../middleware/authMiddleware.js'; 
 
 const router = express.Router();
 
-// Place an Order
 router.post('/', authMiddleware, async (req, res) => {
   try {
     const { name, phone, address, doorNo, areaName, landmark, gstNumber, locationType } = req.body;
@@ -16,7 +15,7 @@ router.post('/', authMiddleware, async (req, res) => {
   }
 });
 
-// Fetch User's Previous Orders
+
 router.get('/my-orders', authMiddleware, async (req, res) => {
   try {
     const orders = await Order.find({ userId: req.userId }).sort({ createdAt: -1 });

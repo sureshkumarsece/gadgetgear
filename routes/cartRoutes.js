@@ -3,7 +3,7 @@ const { getCartItems, addCartItem, updateCartItem, removeCartItem } = require('.
 
 const router = express.Router();
 
-console.log('🟢 Cart Routes Loaded'); // Debugging
+
 
 router.get('/', getCartItems);
 router.post('/', addCartItem);

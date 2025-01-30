@@ -1,4 +1,5 @@
-import express from 'express';
+const express = require('express');
+
 import cors from 'cors';
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
@@ -15,9 +16,9 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: '*', // Allow all origins (change this in production)
+  origin: '*', 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: ['Content-Type', 'Authorization'], // ✅ Allow 'Authorization'
+  allowedHeaders: ['Content-Type', 'Authorization'], 
 }));
 
 
@@ -32,7 +33,7 @@ const userSchema = new mongoose.Schema({
     name: String,
     email: { type: String, unique: true },
     password: String,
-  }, { timestamps: true }); // ✅ Add timestamps to track user creation
+  }, { timestamps: true }); 
   
 
 const User = mongoose.model('User', userSchema);
