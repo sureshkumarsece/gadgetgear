@@ -1,4 +1,4 @@
-const express = require('express');
+
 
 import cors from 'cors';
 import mongoose from 'mongoose';
@@ -9,6 +9,8 @@ import cartRoutes from './routes/cartRoutes.js';
 import connectDB from './config/db.js';
 import orderRoutes from './routes/orderRoutes.js';
 
+const cors = require('cors');
+const express = require('express');
 
 dotenv.config();
 const app = express();
