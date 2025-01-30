@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
     try {
         // Use the correct MongoDB connection string
-        const conn = await mongoose.connect('mongodb://localhost:27017/CartDB', {
+        const conn = await mongoose.connect('mongodb+srv://sureshkumarsuresh88407:suresh@cluster0.7vsce.mongodb.net/CartDB', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
