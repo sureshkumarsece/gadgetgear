@@ -1,7 +1,6 @@
-import express from 'express';
-import Order from '../models/orderModel.js';
-import authMiddleware from '../middleware/authMiddleware.js'; 
-
+const express = require('express');
+const Order = require('../models/orderModel.js');
+const authMiddleware = require('../middleware/authMiddleware.js'); 
 const router = express.Router();
 
 router.post('/', authMiddleware, async (req, res) => {
